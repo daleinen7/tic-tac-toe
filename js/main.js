@@ -26,15 +26,17 @@ function render() {
             gridEls[i].style.color = "var(--unselected)";
         // if the grid square is X (1)
         } else if (grid[i] === 1) {
-            // set the color to x color
-            gridEls[i].firstChild.style.color = "var(--x-color)";
-            gridEls[i].lastChild.style.color = "var(--unselected)";
+            // put X in front of O and set the color to x color
+            gridEls[i].innerHTML = '<span class="o">O</span> <span class="x">X</span>'
+            gridEls[i].lastChild.style.color = "var(--x-color)";
+            gridEls[i].firstChild.style.color = "var(--unselected)";
+        // if the grid square is o (-1)
         } else if (grid[i] === -1) {
-            // set the color to o color (-1)
+            // Put O in front of X and set the color to o color
+            gridEls[i].innerHTML = '<span class="x">X</span> <span class="o">O</span>'
             gridEls[i].lastChild.style.color = "var(--o-color)";
             gridEls[i].firstChild.style.color = "var(--unselected)";
         }
-
     }
 }
 
