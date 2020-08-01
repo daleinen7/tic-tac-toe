@@ -5,14 +5,24 @@
     --unselected:#341b4b;
     --x-color:#11bce3;
     --o-color:#e31131;
+    --bg: #63525b;
 }
 
 body {
     font-family: Marske, Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
 }
 main {
     width: 850px;
     margin: auto 0;
+}
+
+h1 {
+    font-size: 4em;
+    color: #FB4264;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #F40A35;
 }
 
 #board {
@@ -30,6 +40,21 @@ main {
     font-size: 220px;
     padding: 20px 100px 20px 0px;
     letter-spacing: -0.5em;
+}
+
+.x-select {
+    color: var(--x-color);
+    text-shadow: 0 0 4vw var(--x-color);
+}
+
+.o-select {
+    color: var(--o-color);
+    text-shadow: 0 0 4vw var(--o-color);
+}
+
+.unselected {
+    color: var(--unselected);
+    text-shadow: none;
 }
 
 .square:hover {

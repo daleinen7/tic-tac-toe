@@ -20,6 +20,9 @@ function squareSelect(e) {
     // find the square clicked and have it's ID update the corrosponding array index in the grid array
     const index = parseInt(e.target.id.replace('square', ''));
 
+    // if the square is taken already
+    if ((grid[index] != 0)) return;
+
     if (playerXTurn) {
         grid[index] = 1;
     } else if (!playerXTurn) {
@@ -43,13 +46,13 @@ function render() {
         } else if (grid[i] === 1) {
             // put X in front of O and set the color to x color
             gridEls[i].innerHTML = '<span class="o">O</span> <span class="x">X</span>'
-            gridEls[i].lastChild.style.color = "var(--x-color)";
+            gridEls[i].lastChild.classList.add("x-select");
             gridEls[i].firstChild.style.color = "var(--unselected)";
         // if the grid square is o (-1)
         } else if (grid[i] === -1) {
             // Put O in front of X and set the color to o color
             gridEls[i].innerHTML = '<span class="x">X</span> <span class="o">O</span>'
-            gridEls[i].lastChild.style.color = "var(--o-color)";
+            gridEls[i].lastChild.classList.add("o-select");
             gridEls[i].firstChild.style.color = "var(--unselected)";
         }
     }
