@@ -5,6 +5,7 @@ gameWinner = false;
 
 /*----- cached element references -----*/
 const gridEls = document.querySelectorAll('.square');
+const hudEl = document.getElementById('hud');
 
 /*----- event listeners -----*/
 // on click - if the square is unselected light up and select the grid square for the player
@@ -65,11 +66,33 @@ function render() {
         }
     }
 
+    hud.innerHTML = displayMessage();
+
     checkWinner();
 }
 
-function checkWinner(){
+function displayMessage() {
+    let msg = "";
+    // if it's the start of the game
+    if (!grid.includes(1) && !grid.includes(-1)) {
+        msg = 'Game start. X goes first';
+    } else if (checkWinner()) {
+        msg = `${checkWinner()} wins. The prize is theirs!`
+    } else if (playerXTurn) {
+        msg = 'X turn ...';
+    } else {
+        msg = 'O makes their move!';
+    }
+    
+    // who's turn it is
 
+    // if someone one or it was a tie
+
+    return msg;
+}
+
+function checkWinner(){
+    return gameWinner;
 }
 
 init();

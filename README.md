@@ -8,8 +8,8 @@
 + ~~Provide a reset game button~~
 
 ## Bonus Tasks
-+ Display Who's turn it is
++ ~~Display Who's turn it is~~
 + Provide win logic and display a winning message
 + Provide logic for cat's game
-+ Add your personal touch with unique styling
++ ~~Add your personal touch with unique styling~~
     
