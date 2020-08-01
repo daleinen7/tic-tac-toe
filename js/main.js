@@ -1,8 +1,7 @@
-/*----- constants -----*/
-
 /*----- app's state (variables) -----*/
-const grid = [0, 0, 0, 0, 0, 0, 0, 0, 0 ,0];
+let grid = [0, 0, 0, 0, 0, 0, 0, 0, 0 ,0];
 playerXTurn = true;
+gameWinner = false;
 
 /*----- cached element references -----*/
 const gridEls = document.querySelectorAll('.square');
@@ -10,11 +9,19 @@ const gridEls = document.querySelectorAll('.square');
 /*----- event listeners -----*/
 // on click - if the square is unselected light up and select the grid square for the player
 document.getElementById('board').addEventListener('click', squareSelect);
+document.getElementById('reset').addEventListener('click', init);
 
 // on hover - player's token will light up if the square is not already selected
 
 /*----- functions -----*/
 // INIT
+function init() {
+    grid = [0, 0, 0, 0, 0, 0, 0, 0, 0 ,0];
+    playerXTurn = true;
+    gameWinner = false;
+
+    render();
+}
 
 function squareSelect(e) {
     // find the square clicked and have it's ID update the corrosponding array index in the grid array
@@ -30,7 +37,6 @@ function squareSelect(e) {
     }
 
     playerXTurn = playerXTurn ? false : true;
-
     render();
 }
 
@@ -41,6 +47,8 @@ function render() {
         // if the grid square is not selected (0)
         if (grid[i] === 0) {
             // set the color to both characters to black
+            gridEls[i].lastChild.classList.remove("x-select", "o-select");
+            gridEls[i].firstChild.classList.remove("x-select", "o-select");
             gridEls[i].style.color = "var(--unselected)";
         // if the grid square is X (1)
         } else if (grid[i] === 1) {
@@ -56,6 +64,12 @@ function render() {
             gridEls[i].firstChild.style.color = "var(--unselected)";
         }
     }
+
+    checkWinner();
 }
 
-render();
+function checkWinner(){
+
+}
+
+init();
