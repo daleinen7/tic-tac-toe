@@ -1,0 +1,64 @@
+body {
+    font-family: Marske, Arial, Helvetica, sans-serif;
+}
+
+#board {
+    width: 800px;
+}
+
+.square {
+    background-color: #4E2171;
+    border:solid 4px #FDA6D4;
+    float: left;
+    width: 160px;
+    height: 220px;
+    text-align: center;
+    font-size: 220px;
+    padding: 20px 100px 20px 0px;
+    letter-spacing: -0.5em;
+}
+
+.square:hover {
+    background-color: #6c1d79;
+}
+
+/* Make Hash Grid */
+#square0, #square1, #square2 {
+    border-top: 0px;
+}
+
+#square2, #square5, #square8 {
+    border-right: 0px;
+}
+
+#square6, #square7, #square8 {
+    border-bottom: 0px;
+}
+
+#square0, #square3, #square6 {
+    border-left: 0px;
+}
+
+#square0 {
+    border-top-left-radius: 4px;
+}
+
+#square2 {
+    border-top-right-radius: 4px;
+}
+
+#square6 {
+    border-bottom-left-radius: 4px;
+}
+
+#square8 {
+    border-bottom-right-radius: 4px;
+}
+
+
+@font-face {
+    font-family: Marske;
+
+    src: url("Marske.ttf")  format("truetype"),
+         url("Marske.otf") format("opentype");
+}
