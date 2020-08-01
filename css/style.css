@@ -1,14 +1,28 @@
+:root {
+    --grid-bg:#4c2171;
+    --grid-bg-hover:#6c1d79;
+    --grid-color:#FDA6D4;
+    --unselected:#341b4b;
+    --x-color:#11bce3;
+    --o-color:#e31131;
+}
+
 body {
     font-family: Marske, Arial, Helvetica, sans-serif;
+}
+main {
+    width: 850px;
+    margin: auto 0;
 }
 
 #board {
     width: 800px;
+    margin: auto 0;
 }
 
 .square {
-    background-color: #4E2171;
-    border:solid 4px #FDA6D4;
+    background-color: var(--grid-bg);
+    border:solid 4px var(--grid-color);
     float: left;
     width: 160px;
     height: 220px;
@@ -19,7 +33,7 @@ body {
 }
 
 .square:hover {
-    background-color: #6c1d79;
+    background-color: var(--grid-bg-hover);
 }
 
 /* Make Hash Grid */
