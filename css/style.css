@@ -1,132 +1,183 @@
 :root {
-    --grid-bg:#4c2171;
-    --grid-bg-hover:#6c1d79;
-    --grid-color:#FDA6D4;
-    --unselected:#341b4b;
-    --x-color:#e31131;
-    --o-color:#11bce3;
-    --bg: #63525b;
+  --grid-bg: #4c2171;
+  --grid-bg-hover: #6c1d79;
+  --grid-color: #fda6d4;
+  --unselected: #341b4b;
+  --x-color: #e31131;
+  --o-color: #11bce3;
+  --bg: #63525b;
 }
 
 body {
-    font-family: Marske, Arial, Helvetica, sans-serif;
-    background-color: var(--bg);
-    background-image: url('concrete_wall_@2X.png');
+  font-family: Marske, Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  background-image: url("concrete_wall_@2X.png");
 }
 main {
-    width: 960px;
-    margin: auto;
+  width: 960px;
+  margin: auto;
+  padding: 10vh; /* bg add*/
+  /*  border: 10px, double, var(--x-color); /* bg added and it didn't work lmao */
+  border: dashed; /*take a look at double as well */
+  border-color: var(--x-color);
+  border-width: 10px;
 }
 
 h1 {
-    font-size: 4em;
-    color: var(--x-color);
-    font-size: 9vw;
-    line-height: 9vw;
-    text-shadow: 0 0 3vw var(--x-color);
+  /* font-size: 4em;/* why 2?? */
+  color: var(--x-color);
+  font-size: 9vw; /* why 2?? */
+  line-height: 9vh; /*changed to view height from view width*/
+  text-shadow: 0 0 3vw var(--x-color);
+  text-align: center; /* bg added */
 }
 
 h2 {
-    font-size: 3em;
-    color: var(--grid-color);
-    text-shadow: 0 0 3vw var(--x-color);
+  font-size: 3em;
+  color: var(--grid-color);
+  text-shadow: 0 0 3vw var(--x-color);
 }
 
 #board {
-    width: 800px;
-    margin: auto 0;
+  display: inline-block; /* bg added */
+  width: 800px;
+  height: fit-content; /* bg added */
+  margin: auto 0;
 }
 
 .square {
-    background-color: var(--grid-bg);
-    border:solid 4px var(--grid-color);
-    float: left;
-    width: 160px;
-    height: 220px;
-    text-align: center;
-    font-size: 220px;
-    padding: 20px 100px 20px 0px;
-    letter-spacing: -0.5em;
+  background-color: var(--grid-bg);
+  border: solid 4px var(--grid-color);
+  float: left;
+  width: 160px;
+  height: 220px;
+  text-align: center;
+  font-size: 220px;
+  padding: 20px 100px 20px 0px;
+  letter-spacing: -0.5em;
 }
 
 .x-select {
-    color: var(--x-color);
-    text-shadow: 0 0 4vw var(--x-color);
+  color: var(--x-color);
+  text-shadow: 0 0 4vw var(--x-color);
 }
 
 .o-select {
-    color: var(--o-color);
-    text-shadow: 0 0 4vw var(--o-color);
+  color: var(--o-color);
+  text-shadow: 0 0 4vw var(--o-color);
 }
 
 .unselected {
-    color: var(--unselected);
-    text-shadow: none;
+  color: var(--unselected);
+  text-shadow: none;
 }
 
 .square:hover {
-    background-color: var(--grid-bg-hover);
+  background-color: var(--grid-bg-hover);
 }
 
 /* Make Hash Grid */
-#square0, #square1, #square2 {
-    border-top: 0px;
+#square0,
+#square1,
+#square2 {
+  border-top: 0px;
 }
 
-#square2, #square5, #square8 {
-    border-right: 0px;
+#square2,
+#square5,
+#square8 {
+  border-right: 0px;
 }
 
-#square6, #square7, #square8 {
-    border-bottom: 0px;
+#square6,
+#square7,
+#square8 {
+  border-bottom: 0px;
 }
 
-#square0, #square3, #square6 {
-    border-left: 0px;
+#square0,
+#square3,
+#square6 {
+  border-left: 0px;
 }
 
 #square0 {
-    border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
 }
 
 #square2 {
-    border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 #square6 {
-    border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 #square8 {
-    border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
-#reset {  
-    white-space: pre-line;
-    font-family: Marske, Arial, Helvetica, sans-serif;
-    color: var(--o-color);
-    font-size: 2em;
-    border-radius: 8px;
-    background-color: #241b20;
-    width: 100px;
-    height: 400px;
-    /* padding: 30px 40px; */
-    margin: 0 0 0 20px;
-    outline: none;
+#reset {
+  white-space: pre-line;
+  font-family: Marske, Arial, Helvetica, sans-serif;
+  color: var(--o-color);
+  font-size: 2em;
+  border-radius: 8px;
+  background-color: #241b20;
+  width: 100px;
+  height: 400px;
+  /* padding: 30px 40px; */
+  margin: 0 0 0 20px;
+  outline: none;
+  float: right; /*bg added */
 }
 
 #reset:hover {
-    color: var(--x-color);
+  color: var(--x-color);
 }
 
 #reset:active {
-    text-shadow: 0 0 1vw var(--x-color);
+  text-shadow: 0 0 1vw var(--x-color);
 }
 
-
 @font-face {
-    font-family: Marske;
+  font-family: Marske;
 
-    src: url("Marske.ttf")  format("truetype"),
-         url("Marske.otf") format("opentype");
+  src: url("Marske.ttf") format("truetype"),
+    url("Marske.otf") format("opentype");
+}
+/* ============= MOBILE VIEW ================ bg added*/
+
+@media only screen and (max-width: 375px) {
+  /* New sizes/styles you add the specific things you are changing/over riding. If it doesn't change, it doesn't need to be here*/
+  main {
+    width: 95%;
+    padding: 1.5em;
+    padding-right: 2.5em;
+  }
+  h1 {
+    font-size: 2.9em;
+    line-height: none;
+  }
+  #board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 460px;
+  }
+  h2 {
+    height: fit-content;
+    font-size: 1.5em;
+  }
+  .square {
+    width: 53px;
+    height: 73px;
+    font-size: 73px;
+    padding: 20px 60px 20px 0px;
+  }
+  #reset {
+    /* make horizontal*/
+    width: 80vw;
+    height: 10vh;
+    margin-top: 20px;
+  }
 }
