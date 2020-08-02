@@ -18,7 +18,7 @@ main {
   margin: auto;
   padding: 10vh; /* bg add*/
   /*  border: 10px, double, var(--x-color); /* bg added and it didn't work lmao */
-  border: dashed; /*take a look at double as well */
+  border: double; /*take a look at double as well */
   border-color: var(--x-color);
   border-width: 10px;
 }
@@ -126,7 +126,6 @@ h2 {
   background-color: #241b20;
   width: 100px;
   height: 400px;
-  /* padding: 30px 40px; */
   margin: 0 0 0 20px;
   outline: none;
   float: right; /*bg added */

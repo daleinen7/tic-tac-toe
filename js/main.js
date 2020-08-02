@@ -1,4 +1,14 @@
 /*----- constants -----*/
+const winningLogBook = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
 
 /*----- app's state (variables) -----*/
 let grid = [];
@@ -88,29 +98,24 @@ function displayMessage() {
 }
 
 function checkWinner(){
-    // convert grid to string to compare lists to
-    let winner;
+
+
+    // for each combination in winningLogBook
     for (let i = 0; i < winningLogBook.length; i++) {
-        const list = winningLogBook[i].toString();
-        const strGrid = grid.toString();
-        console.log(list);
-        console.log(strGrid.replace(/1/g, 'x').replace(/-1/g, '0'));
-        
-        // if current grid status is the same as looping winLog
-        if (list === strGrid.replace(/1/g, 'x')) {
-            
+        const winLog = winningLogBook[i];
+        // check if this combination of indexes in the grid array adds up to 3    
+
+        if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === 3) {
             return 'Player X';
             break;
-        } else if (list === strGrid.replace(/-1/g, 'x')) {
-            return 'Player Y';
+        } else if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === -3) {
+            return 'Player O';
             break;
         } else if (grid.includes(0) === false) {
             return 'Techno-Cat';
             break;
-        } else {
-            // no winner ... yet.
-            return;
-        }
+        } 
+        
     }
 }
 
