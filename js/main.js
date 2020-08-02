@@ -28,9 +28,11 @@ document.getElementById('reset').addEventListener('click', init);
 
 /*----- functions -----*/
 function init() {
-    grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    grid = [1, 1, 0, 1, 0, 0, 0, 0, 0];
     playerXTurn = true;
     render();
+    console.log(grid.toString().replace("1", "x"));
+
 }
 
 function squareSelect(e) {
@@ -101,22 +103,25 @@ function displayMessage() {
 function checkWinner(){
     // convert grid to string to compare lists to
     let winner;
-    console.log()
     for (let i = 0; i < winningLogBook.length; i++) {
         const list = winningLogBook[i];
-        if (list === grid.toString().replace("1", "x")) {
-            console.log("this should count as a win");
-            return "Player X";
-            break;
-        } else if (list === grid.toString().replace("-1", "x")) {
-            return "Player O";
-            break;
-        } else if (grid.includes(0) === false) {
-            return "Cat";
-            break;
-        } else {
-            return;
-        }
+        const strGrid = grid.toString();
+        console.log(grid.toString().replace("1", "x"));
+        console.log(list.toString());
+
+        // if (list === grid.toString().replace("1", "x")) {
+        //     console.log("this should count as a win");
+        //     return "Player X";
+        //     break;
+        // } else if (list === grid.toString().replace("-1", "x")) {
+        //     return "Player O";
+        //     break;
+        // } else if (grid.includes(0) === false) {
+        //     return "Cat";
+        //     break;
+        // } else {
+        //     return;
+        // }
     }
 }
 
