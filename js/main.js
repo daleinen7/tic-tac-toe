@@ -1,7 +1,19 @@
+const winningLogBook = [
+    ['x','x','x', '0','0','0', '0','0','0'],
+    ['0','0','0', 'x','x','x', '0','0','0'],
+    ['0','0','0', '0','0','0', 'x','x','x'],
+
+    ['x','0','0', 'x','0','0', 'x','0','0'],
+    ['0','x','0', '0','x','0', '0','x','0'],
+    ['0','0','x', '0','0','x', '0','0','x'],
+
+    ['x','0','0', '0','x','0', '0','0','x'],
+    ['0','0','x', '0','x','0', 'x','0','0']
+]
+
 /*----- app's state (variables) -----*/
-let grid = [0, 0, 0, 0, 0, 0, 0, 0, 0 ,0];
+let grid = [];
 playerXTurn = true;
-gameWinner = false;
 
 /*----- cached element references -----*/
 const gridEls = document.querySelectorAll('.square');
@@ -15,12 +27,9 @@ document.getElementById('reset').addEventListener('click', init);
 // on hover - player's token will light up if the square is not already selected
 
 /*----- functions -----*/
-// INIT
 function init() {
-    grid = [0, 0, 0, 0, 0, 0, 0, 0, 0 ,0];
+    grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     playerXTurn = true;
-    gameWinner = false;
-
     render();
 }
 
@@ -29,7 +38,7 @@ function squareSelect(e) {
     const index = parseInt(e.target.id.replace('square', ''));
 
     // if the square is taken already
-    if ((grid[index] != 0)) return;
+    if ((grid[index] != 0) || checkWinner() === true) return;
 
     if (playerXTurn) {
         grid[index] = 1;
@@ -43,7 +52,7 @@ function squareSelect(e) {
 
 function render() {
     // for the length of the grid array
-    for (let i = 0; i < grid.length - 1; i++) {
+    for (let i = 0; i < grid.length; i++) {
         
         // if the grid square is not selected (0)
         if (grid[i] === 0) {
@@ -65,10 +74,11 @@ function render() {
             gridEls[i].firstChild.style.color = "var(--unselected)";
         }
     }
+    
+    checkWinner();
 
     hud.innerHTML = displayMessage();
 
-    checkWinner();
 }
 
 function displayMessage() {
@@ -83,16 +93,31 @@ function displayMessage() {
     } else {
         msg = 'O makes their move!';
     }
-    
-    // who's turn it is
-
     // if someone one or it was a tie
 
     return msg;
 }
 
 function checkWinner(){
-    return gameWinner;
+    // convert grid to string to compare lists to
+    let winner;
+    console.log()
+    for (let i = 0; i < winningLogBook.length; i++) {
+        const list = winningLogBook[i];
+        if (list === grid.toString().replace("1", "x")) {
+            console.log("this should count as a win");
+            return "Player X";
+            break;
+        } else if (list === grid.toString().replace("-1", "x")) {
+            return "Player O";
+            break;
+        } else if (grid.includes(0) === false) {
+            return "Cat";
+            break;
+        } else {
+            return;
+        }
+    }
 }
 
 init();
