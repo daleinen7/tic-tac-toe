@@ -28,11 +28,9 @@ document.getElementById('reset').addEventListener('click', init);
 
 /*----- functions -----*/
 function init() {
-    grid = [1, 1, 0, 1, 0, 0, 0, 0, 0];
+    grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     playerXTurn = true;
     render();
-    console.log(grid.toString().replace("1", "x"));
-
 }
 
 function squareSelect(e) {
@@ -104,24 +102,24 @@ function checkWinner(){
     // convert grid to string to compare lists to
     let winner;
     for (let i = 0; i < winningLogBook.length; i++) {
-        const list = winningLogBook[i];
-        const strGrid = grid.toString();
-        console.log(grid.toString().replace("1", "x"));
-        console.log(list.toString());
+        const list = winningLogBook[i].toString();
+        const strGrid = grid.toString()
 
-        // if (list === grid.toString().replace("1", "x")) {
-        //     console.log("this should count as a win");
-        //     return "Player X";
-        //     break;
-        // } else if (list === grid.toString().replace("-1", "x")) {
-        //     return "Player O";
-        //     break;
-        // } else if (grid.includes(0) === false) {
-        //     return "Cat";
-        //     break;
-        // } else {
-        //     return;
-        // }
+        // if current grid status is the same as looping winLog
+        if (list === strGrid.replace(/1/g, 'x')) {
+            
+            return 'Player X';
+            break;
+        } else if (list === strGrid.replace(/-1/g, 'x')) {
+            return 'Player Y';
+            break;
+        } else if (grid.includes(0) === false) {
+            return 'Techno-Cat';
+            break;
+        } else {
+            // no winner ... yet.
+            return;
+        }
     }
 }
 
