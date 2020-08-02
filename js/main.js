@@ -1,15 +1,4 @@
-const winningLogBook = [
-    ['x','x','x', '0','0','0', '0','0','0'],
-    ['0','0','0', 'x','x','x', '0','0','0'],
-    ['0','0','0', '0','0','0', 'x','x','x'],
-
-    ['x','0','0', 'x','0','0', 'x','0','0'],
-    ['0','x','0', '0','x','0', '0','x','0'],
-    ['0','0','x', '0','0','x', '0','0','x'],
-
-    ['x','0','0', '0','x','0', '0','0','x'],
-    ['0','0','x', '0','x','0', 'x','0','0']
-]
+/*----- constants -----*/
 
 /*----- app's state (variables) -----*/
 let grid = [];
@@ -87,7 +76,7 @@ function displayMessage() {
     if (!grid.includes(1) && !grid.includes(-1)) {
         msg = 'Game start. X goes first';
     } else if (checkWinner()) {
-        msg = `${checkWinner()} wins. The prize is theirs!`
+        msg = `${checkWinner()} wins. The prize is theirs!`;
     } else if (playerXTurn) {
         msg = 'X turn ...';
     } else {
@@ -103,8 +92,10 @@ function checkWinner(){
     let winner;
     for (let i = 0; i < winningLogBook.length; i++) {
         const list = winningLogBook[i].toString();
-        const strGrid = grid.toString()
-
+        const strGrid = grid.toString();
+        console.log(list);
+        console.log(strGrid.replace(/1/g, 'x').replace(/-1/g, '0'));
+        
         // if current grid status is the same as looping winLog
         if (list === strGrid.replace(/1/g, 'x')) {
             
