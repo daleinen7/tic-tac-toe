@@ -34,11 +34,14 @@ function init() {
 
 function squareSelect(e) {
     // find the square clicked and have it's ID update the corrosponding array index in the grid array
+    
+    // get the number portion of the square id from the id
     const index = parseInt(e.target.id.replace('square', ''));
-
+    
     // if the square is taken already
-    if ((grid[index] != 0) || checkWinner() === true) return;
-
+    if (checkWinner() || grid[index] != 0) return; ////  <----------- THIS LINE IS DUMB
+    
+    // toggle player's turn
     if (playerXTurn) {
         grid[index] = 1;
     } else if (!playerXTurn) {
@@ -99,6 +102,7 @@ function displayMessage() {
 
 function checkWinner(){
 
+    let winner = false;
 
     // for each combination in winningLogBook
     for (let i = 0; i < winningLogBook.length; i++) {
@@ -106,17 +110,19 @@ function checkWinner(){
         // check if this combination of indexes in the grid array adds up to 3    
 
         if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === 3) {
-            return 'Player X';
+            winner = 'Player X';
             break;
         } else if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === -3) {
-            return 'Player O';
+            winner = 'Player O';
             break;
         } else if (grid.includes(0) === false) {
-            return 'Techno-Cat';
+            winner = 'Techno-Cat';
             break;
         } 
         
     }
+
+    return winner;
 }
 
 init();

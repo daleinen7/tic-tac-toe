@@ -12,4 +12,8 @@
 + ~~Provide win logic and display a winning message~~
 + ~~Provide logic for cat's game~~
 + ~~Add your personal touch with unique styling~~
-    
+
+
+## Bugs
++ If win is the last move, it doesn't register the winner
++ ~~Players can continue even after there is a winner~~
