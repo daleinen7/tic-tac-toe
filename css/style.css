@@ -16,11 +16,8 @@ body {
 main {
   width: 960px;
   margin: auto;
-  padding: 10vh; /* bg add*/
-  /*  border: 10px, double, var(--x-color); /* bg added and it didn't work lmao */
-  border: double; /*take a look at double as well */
-  border-color: var(--x-color);
-  border-width: 10px;
+  padding: 7vh; /* bg add*/
+  border: double var(--x-color) 10px; /*take a look at dash as well */
 }
 
 h1 {
@@ -126,7 +123,7 @@ h2 {
   background-color: #241b20;
   width: 100px;
   height: 400px;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 14px;
   outline: none;
   float: right; /*bg added */
 }

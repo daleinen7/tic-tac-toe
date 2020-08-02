@@ -9,7 +9,7 @@
 
 ## Bonus Tasks
 + ~~Display Who's turn it is~~
-+ Provide win logic and display a winning message
-+ Provide logic for cat's game
++ ~~Provide win logic and display a winning message~~
++ ~~Provide logic for cat's game~~
 + ~~Add your personal touch with unique styling~~
     
