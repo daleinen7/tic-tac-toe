@@ -15,5 +15,9 @@
 
 
 ## Bugs
-+ If win is the last move, it doesn't register the winner
++ ~~If win is the last move, it doesn't register the winner~~
 + ~~Players can continue even after there is a winner~~
+
+## Note
++ full disclosure, a developer friend looked over my CSS and she had suggestions (baby's first pull request merge)
++ ... further full disclosure I looked at the solution to find how to store the winning coditions logbook. As well as the single line to check against the current grid state

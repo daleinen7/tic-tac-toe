@@ -28,6 +28,7 @@ document.getElementById('reset').addEventListener('click', init);
 /*----- functions -----*/
 function init() {
     grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    hud.style.color = 'var(--x-color';
     playerXTurn = true;
     render();
 }
@@ -39,7 +40,7 @@ function squareSelect(e) {
     const index = parseInt(e.target.id.replace('square', ''));
     
     // if the square is taken already
-    if (checkWinner() || grid[index] != 0) return; ////  <----------- THIS LINE IS DUMB
+    if (grid[index] != 0 || checkWinner()) return;
     
     // toggle player's turn
     if (playerXTurn) {
@@ -77,7 +78,9 @@ function render() {
         }
     }
     
-    checkWinner();
+    if (checkWinner() === 'Player O') {
+        hud.style.color = 'var(--o-color)';
+    }
 
     hud.innerHTML = displayMessage();
 
@@ -95,8 +98,7 @@ function displayMessage() {
     } else {
         msg = 'O makes their move!';
     }
-    // if someone one or it was a tie
-
+    
     return msg;
 }
 
@@ -110,16 +112,22 @@ function checkWinner(){
         // check if this combination of indexes in the grid array adds up to 3    
 
         if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === 3) {
+            console.log("Should display");
+        }
+
+        // Decide winner here
+        if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === 3) {
             winner = 'Player X';
             break;
         } else if (grid[winLog[0]] + grid[winLog[1]] + grid[winLog[2]] === -3) {
             winner = 'Player O';
             break;
-        } else if (grid.includes(0) === false) {
-            winner = 'Techno-Cat';
-            break;
-        } 
+        }
         
+    }
+
+    if (grid.includes(0) === false && winner === false) {
+        winner = 'Techno-Cat';
     }
 
     return winner;

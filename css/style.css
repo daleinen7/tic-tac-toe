@@ -16,7 +16,7 @@ body {
 main {
   width: 960px;
   margin: auto;
-  padding: 7vh; /* bg add*/
+  padding: 7vh; /* bg add && updated by DAL*/
   border: double var(--x-color) 10px; /*take a look at dash as well */
 }
 
